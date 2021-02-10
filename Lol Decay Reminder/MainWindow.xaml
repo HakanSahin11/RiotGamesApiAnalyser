@@ -1,0 +1,74 @@
+﻿<Window x:Class="Lol_Decay_Reminder.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Lol_Decay_Reminder"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="5*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+            <RowDefinition Height="*"/>
+
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="2*"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+        <ComboBox Name="CbRegion" Grid.Column="1" Grid.ColumnSpan="2" Grid.Row="3" VerticalAlignment="Top" SelectionChanged="CbRegion_SelectionChanged"/>
+        <Border BorderThickness="1" BorderBrush="Black" Grid.Row="5" Grid.Column="1" Grid.RowSpan="8" Grid.ColumnSpan="2">
+            <StackPanel Name="SpNames">
+                <StackPanel.Resources>
+                    <Style TargetType="Border">
+                        <Setter Property="Margin" Value="5"></Setter>
+                    </Style>
+                </StackPanel.Resources>
+            </StackPanel>
+        </Border>
+
+        <Button x:Name="btnAddNew" Content="Add New"   Grid.Row="2" Grid.Column="1"  Click="BtnAddNew_Confirm" BorderThickness="1" BorderBrush="Black" Background="#24a0ed"/>
+        <Button x:Name="btnDelete" Content="Delete"  Grid.Column="2" Grid.Row="2" BorderThickness="1" BorderBrush="Black" Click="btnDelete_Click"/>
+
+        <TextBox x:Name="txtSearch" MouseDoubleClick="TxtSearch_MouseDoubleClick" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="2" BorderBrush="Black" BorderThickness="1" TextChanged="txtSearch_TextChanged"/>
+
+        <Label Content="Summoner Name" Grid.RowSpan="2" Grid.Row="3" Grid.Column="4" FontWeight="Bold" BorderBrush="Black" BorderThickness="1"/>
+        <Label Name="lbName" Content="Name" Grid.RowSpan="2"  Grid.Row="3" Grid.Column="5"   BorderBrush="Black" BorderThickness="1"/>
+        <Label Content="Summoner Lvl" Grid.Row="6" Grid.Column="4" FontWeight="Bold"  BorderBrush="Black" BorderThickness="1"/>
+        <Label Name="lbSummonerLvl" Content="Summoner Lvl" Grid.Row="6" Grid.Column="5"  BorderBrush="Black" BorderThickness="1"/>
+
+        <Label Content="Rank" Grid.Row="8" Grid.Column="4" FontWeight="Bold"  BorderBrush="Black" BorderThickness="1"/>
+        <Label Name="lbRank" Content="Rank" Grid.Row="8" Grid.Column="5"   BorderBrush="Black" BorderThickness="1"/>
+
+        <Label Content="Last Match " Grid.Row="10" Grid.Column="4" FontWeight="Bold" BorderBrush="Black" BorderThickness="1" />
+        <Label Name="lbLastMatch" Content="Last Match" Grid.Row="10" Grid.Column="5"  BorderBrush="Black" BorderThickness="1"/>
+
+        <Label Content="Days left till decay" Grid.Row="12" Grid.Column="4" FontWeight="Bold"  BorderBrush="Black" BorderThickness="1" />
+        <Label Name="lbDaysLeft" Content="Days Left" Grid.Row="12" Grid.Column="5"  BorderBrush="Black" BorderThickness="1"/>
+
+    </Grid>
+</Window>

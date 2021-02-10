@@ -1,0 +1,31 @@
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\Lol Decay Reminder.exe
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\Lol Decay Reminder.deps.json
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\Lol Decay Reminder.runtimeconfig.json
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\Lol Decay Reminder.runtimeconfig.dev.json
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\Lol Decay Reminder.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\Lol Decay Reminder.pdb
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\DnsClient.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\MongoDB.Bson.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\MongoDB.Driver.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\MongoDB.Driver.Core.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\MongoDB.Libmongocrypt.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\SharpCompress.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\runtimes\win\native\libzstd.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\runtimes\win\native\snappy32.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\bin\Release\netcoreapp3.1\runtimes\win\native\snappy64.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\AddNew.g.cs
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\MainWindow.g.cs
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\App.g.cs
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder_MarkupCompile.cache
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder_MarkupCompile.lref
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\AddNew.baml
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\MainWindow.baml
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder.g.resources
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder.AssemblyInfoInputs.cache
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder.AssemblyInfo.cs
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder.csproj.CoreCompileInputs.cache
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder.csproj.CopyComplete
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder.dll
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder.pdb
+C:\Users\Hakan\Source\Repos\RiotGamesDecayReminder\Lol Decay Reminder\obj\Release\netcoreapp3.1\Lol Decay Reminder.genruntimeconfig.cache
