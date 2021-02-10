@@ -31,7 +31,7 @@ namespace Lol_Decay_Reminder
     public partial class MainWindow : Window
     {
         private readonly DBClass _dBClass;
-        private readonly string _ApiKey = "RGAPI-307ab5f0-f415-40fe-8d3c-e9c1407ff655";
+        private readonly string _ApiKey = "#"; //add key here
         public List<SavedUsersModel> listOfNames = new List<SavedUsersModel>();
         private Dictionary<string, int> DicOfDecayRanks()
         {
