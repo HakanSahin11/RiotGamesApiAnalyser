@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Hakan\\source\\repos\\Lol Decay Analyser\\Lol Decay Analyser\\Lol Decay Analyser.csproj": {}
+    "C:\\Users\\Hakan\\source\\repos\\RiotGamesApiAnalyser\\Lol Decay Analyser\\Lol Decay Analyser.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Hakan\\source\\repos\\Lol Decay Analyser\\Lol Decay Analyser\\Lol Decay Analyser.csproj": {
+    "C:\\Users\\Hakan\\source\\repos\\RiotGamesApiAnalyser\\Lol Decay Analyser\\Lol Decay Analyser.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Hakan\\source\\repos\\Lol Decay Analyser\\Lol Decay Analyser\\Lol Decay Analyser.csproj",
+        "projectUniqueName": "C:\\Users\\Hakan\\source\\repos\\RiotGamesApiAnalyser\\Lol Decay Analyser\\Lol Decay Analyser.csproj",
         "projectName": "Lol Decay Analyser",
-        "projectPath": "C:\\Users\\Hakan\\source\\repos\\Lol Decay Analyser\\Lol Decay Analyser\\Lol Decay Analyser.csproj",
+        "projectPath": "C:\\Users\\Hakan\\source\\repos\\RiotGamesApiAnalyser\\Lol Decay Analyser\\Lol Decay Analyser.csproj",
         "packagesPath": "C:\\Users\\Hakan\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Hakan\\source\\repos\\Lol Decay Analyser\\Lol Decay Analyser\\obj\\",
+        "outputPath": "C:\\Users\\Hakan\\source\\repos\\RiotGamesApiAnalyser\\Lol Decay Analyser\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Hakan\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -56,7 +56,7 @@
             },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
-              "version": "[3.1.4, )"
+              "version": "[3.1.5, )"
             }
           },
           "imports": [

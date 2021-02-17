@@ -7,11 +7,10 @@ using System.Threading.Tasks;
 
 namespace Lol_Decay_Analyser.Data
 {
-    public class MvcMovieContext : DbContext
+    public class RiotContext : DbContext
     {
-        public MvcMovieContext (DbContextOptions<MvcMovieContext> options)
-            : base(options)
-        {}
-        public DbSet<Movie> Movie { get; set; }
+        public RiotContext (DbContextOptions<RiotContext> options)
+            : base(options) { }
+        public DbSet<RiotModel> Riots { get; set; }
     }
 }
