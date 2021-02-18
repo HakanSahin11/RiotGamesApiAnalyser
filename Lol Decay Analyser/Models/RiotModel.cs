@@ -9,5 +9,8 @@ namespace Lol_Decay_Analyser.Models
     {
         public int Id { get; set; }
         public string SummonerName { get; set; }
+        public string Rank { get; set; }
+        public DateTime? LastMatch { get; set; }
+        public int? TimeRemain { get; set; } 
     }
 }

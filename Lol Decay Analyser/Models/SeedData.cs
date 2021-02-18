@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using static Lol_Decay_Analyser.Helper_Classes.RiotConnection;
 
 namespace Lol_Decay_Analyser.Models
 {
@@ -21,26 +22,38 @@ namespace Lol_Decay_Analyser.Models
                 {
                     return;   // DB has been seeded
                 }
-
+                RiotUser();
                 context.Riots.AddRange(
                     new RiotModel
                     {
                         SummonerName = "Test1",
+                        LastMatch = null,
+                        Rank = null,
+                        TimeRemain = null
                     },
 
                     new RiotModel
                     {
                         SummonerName = "Test2",
+                        LastMatch = null,
+                        Rank = null,
+                        TimeRemain = null
                     },
 
                     new RiotModel
                     {
                         SummonerName = "Test3",
+                        LastMatch = null,
+                        Rank = null,
+                        TimeRemain = null
                     },
 
                     new RiotModel
                     {
                         SummonerName = "Test4",
+                        LastMatch = null,
+                        Rank = null,
+                        TimeRemain = null
                     }
                 );
                 context.SaveChanges();
