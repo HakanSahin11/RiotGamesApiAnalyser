@@ -10,22 +10,22 @@ using Lol_Decay_Analyser.Models;
 
 namespace Lol_Decay_Analyser.Controllers
 {
-    public class RiotAnalyseController : Controller
+    public class RiotController : Controller
     {
         private readonly RiotContext _context;
 
-        public RiotAnalyseController(RiotContext context)
+        public RiotController(RiotContext context)
         {
             _context = context;
         }
 
-        // GET: RiotAnalyse
+        // GET: Riot
         public async Task<IActionResult> Index()
         {
             return View(await _context.Riots.ToListAsync());
         }
 
-        // GET: RiotAnalyse/Details/5
+        // GET: Riot/Details/5
         public async Task<IActionResult> Details(int? id)
         {
             if (id == null)
@@ -43,18 +43,18 @@ namespace Lol_Decay_Analyser.Controllers
             return View(riotModel);
         }
 
-        // GET: RiotAnalyse/Create
+        // GET: Riot/Create
         public IActionResult Create()
         {
             return View();
         }
 
-        // POST: RiotAnalyse/Create
+        // POST: Riot/Create
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SummonerName,Rank,LastMatch,TimeRemain")] RiotModel riotModel)
+        public async Task<IActionResult> Create([Bind("Id,SummonerName,LastMatch,Rank,TimeRemain,Region")] RiotModel riotModel)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace Lol_Decay_Analyser.Controllers
             return View(riotModel);
         }
 
-        // GET: RiotAnalyse/Edit/5
+        // GET: Riot/Edit/5
         public async Task<IActionResult> Edit(int? id)
         {
             if (id == null)
@@ -81,12 +81,12 @@ namespace Lol_Decay_Analyser.Controllers
             return View(riotModel);
         }
 
-        // POST: RiotAnalyse/Edit/5
+        // POST: Riot/Edit/5
         // To protect from overposting attacks, enable the specific properties you want to bind to, for 
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SummonerName,Rank,LastMatch,TimeRemain")] RiotModel riotModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SummonerName,LastMatch,Rank,TimeRemain,Region")] RiotModel riotModel)
         {
             if (id != riotModel.Id)
             {
@@ -116,7 +116,7 @@ namespace Lol_Decay_Analyser.Controllers
             return View(riotModel);
         }
 
-        // GET: RiotAnalyse/Delete/5
+        // GET: Riot/Delete/5
         public async Task<IActionResult> Delete(int? id)
         {
             if (id == null)
@@ -134,7 +134,7 @@ namespace Lol_Decay_Analyser.Controllers
             return View(riotModel);
         }
 
-        // POST: RiotAnalyse/Delete/5
+        // POST: Riot/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)

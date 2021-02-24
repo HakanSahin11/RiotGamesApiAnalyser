@@ -347,8 +347,8 @@ C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\ne
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.Views.pdb
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.csproj.CopyComplete
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.genruntimeconfig.cache
-C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\RiotAnalyse\Create.cshtml.g.cs
-C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\RiotAnalyse\Delete.cshtml.g.cs
-C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\RiotAnalyse\Details.cshtml.g.cs
-C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\RiotAnalyse\Edit.cshtml.g.cs
-C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\RiotAnalyse\Index.cshtml.g.cs
+C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Riot\Create.cshtml.g.cs
+C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Riot\Delete.cshtml.g.cs
+C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Riot\Details.cshtml.g.cs
+C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Riot\Edit.cshtml.g.cs
+C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Riot\Index.cshtml.g.cs

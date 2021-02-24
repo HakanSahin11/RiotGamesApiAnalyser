@@ -22,14 +22,15 @@ namespace Lol_Decay_Analyser.Models
                 {
                     return;   // DB has been seeded
                 }
-                RiotUser();
+             //   RiotUser();
                 context.Riots.AddRange(
                     new RiotModel
                     {
                         SummonerName = "Test1",
                         LastMatch = null,
                         Rank = null,
-                        TimeRemain = null
+                        TimeRemain = null,
+                        Region = "Euw1"
                     },
 
                     new RiotModel
@@ -37,7 +38,8 @@ namespace Lol_Decay_Analyser.Models
                         SummonerName = "Test2",
                         LastMatch = null,
                         Rank = null,
-                        TimeRemain = null
+                        TimeRemain = null,
+                        Region = "Euw1"
                     },
 
                     new RiotModel
@@ -45,7 +47,8 @@ namespace Lol_Decay_Analyser.Models
                         SummonerName = "Test3",
                         LastMatch = null,
                         Rank = null,
-                        TimeRemain = null
+                        TimeRemain = null,
+                        Region = "Euw1"
                     },
 
                     new RiotModel
@@ -53,7 +56,8 @@ namespace Lol_Decay_Analyser.Models
                         SummonerName = "Test4",
                         LastMatch = null,
                         Rank = null,
-                        TimeRemain = null
+                        TimeRemain = null,
+                        Region = "Euw1"
                     }
                 );
                 context.SaveChanges();
