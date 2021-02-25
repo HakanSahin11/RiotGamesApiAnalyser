@@ -10,7 +10,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
 {
     public class RiotConnection
     {
-        private readonly string _ApiKey = "RGAPI-307ab5f0-f415-40fe-8d3c-e9c1407ff655";
+        private readonly string _ApiKey = "###";
 
         private readonly List<string> ListOfRegions = new List<string> { "ALL", "EUW", "EUNE", "NA", "BR", "LAN", "LAS", "OCE", "RU", "TR", "JP", "KR" };
 
