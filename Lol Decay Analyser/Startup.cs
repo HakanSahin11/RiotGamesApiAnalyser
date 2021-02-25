@@ -10,6 +10,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Lol_Decay_Analyser.Data;
 using Microsoft.EntityFrameworkCore;
+using Lol_Decay_Analyser.Helper_Classes;
 
 namespace Lol_Decay_Analyser
 {
@@ -27,7 +28,8 @@ namespace Lol_Decay_Analyser
         {
             services.AddControllersWithViews();
             services.AddDbContext<RiotContext>(options =>
-            options.UseSqlServer(Configuration.GetConnectionString("RiotContext")));
+                options.UseSqlServer(Configuration.GetConnectionString("RiotContext")));
+            services.AddSingleton<RiotConnection>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

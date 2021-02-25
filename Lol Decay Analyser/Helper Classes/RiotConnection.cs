@@ -10,7 +10,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
 {
     public class RiotConnection
     {
-        private readonly string _ApiKey = "###";
+        private readonly string _ApiKey = "RGAPI-307ab5f0-f415-40fe-8d3c-e9c1407ff655";
 
         private readonly List<string> ListOfRegions = new List<string> { "ALL", "EUW", "EUNE", "NA", "BR", "LAN", "LAS", "OCE", "RU", "TR", "JP", "KR" };
 
@@ -34,6 +34,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
         {
             return JsonConvert.DeserializeObject<List<RankModel>>(new WebClient().DownloadString($"https://{savedUsers.Region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{SummonerId}?api_key={_ApiKey}"))[0];
         }
+
         public static DateTime UnixTimeToDateTime(long unixtime)
         {
             //Converts unix time to datetime format
@@ -49,7 +50,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 var LastMatch = GetLastMatchFromAPI(savedUser, User.accountId);
                 var lastMatchTime = UnixTimeToDateTime(LastMatch.timestamp);
                 var rank = GetRankFromAPI(savedUser, User.id);
-                return new RiotModel {SummonerName = savedUser.SummonerName, LastMatch = lastMatchTime, Rank = rank.rank, TimeRemain = null, Region = savedUser.Region };
+                return new RiotModel {SummonerName = savedUser.SummonerName, LastMatch = lastMatchTime, Rank = $"{rank.tier} {rank.rank}", TimeRemain = null, Region = savedUser.Region };
             }
             catch
             {

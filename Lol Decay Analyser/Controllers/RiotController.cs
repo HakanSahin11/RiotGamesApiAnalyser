@@ -7,22 +7,32 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Lol_Decay_Analyser.Data;
 using Lol_Decay_Analyser.Models;
+using Lol_Decay_Analyser.Helper_Classes;
 
 namespace Lol_Decay_Analyser.Controllers
 {
     public class RiotController : Controller
     {
         private readonly RiotContext _context;
+        private readonly RiotConnection _Api;
 
-        public RiotController(RiotContext context)
+        public RiotController(RiotContext context, RiotConnection Api)
         {
             _context = context;
+            _Api = Api;
         }
 
         // GET: Riot
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Riots.ToListAsync());
+            List<RiotModel> list = new List<RiotModel>();
+            var test = await _context.Riots.ToListAsync();
+            //add foreach
+            foreach (var item in test)
+            {
+                list.Add(_Api.GetUserFromAPi(item));
+            }
+            return View(list);
         }
 
         // GET: Riot/Details/5

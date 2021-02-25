@@ -26,7 +26,7 @@ namespace Lol_Decay_Analyser.Models
                 context.Riots.AddRange(
                     new RiotModel
                     {
-                        SummonerName = "Test1",
+                        SummonerName = "ImWorstNightmare",
                         LastMatch = null,
                         Rank = null,
                         TimeRemain = null,
@@ -35,7 +35,7 @@ namespace Lol_Decay_Analyser.Models
 
                     new RiotModel
                     {
-                        SummonerName = "Test2",
+                        SummonerName = "A Wild Nightmare",
                         LastMatch = null,
                         Rank = null,
                         TimeRemain = null,
@@ -44,7 +44,7 @@ namespace Lol_Decay_Analyser.Models
 
                     new RiotModel
                     {
-                        SummonerName = "Test3",
+                        SummonerName = "League of Inting",
                         LastMatch = null,
                         Rank = null,
                         TimeRemain = null,
@@ -53,7 +53,7 @@ namespace Lol_Decay_Analyser.Models
 
                     new RiotModel
                     {
-                        SummonerName = "Test4",
+                        SummonerName = "Mr Donald Trump",
                         LastMatch = null,
                         Rank = null,
                         TimeRemain = null,
