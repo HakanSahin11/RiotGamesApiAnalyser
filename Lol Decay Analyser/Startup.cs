@@ -11,6 +11,8 @@ using System.Threading.Tasks;
 using Lol_Decay_Analyser.Data;
 using Microsoft.EntityFrameworkCore;
 using Lol_Decay_Analyser.Helper_Classes;
+using Lol_Decay_Analyser.Controllers;
+using Lol_Decay_Analyser.Models;
 
 namespace Lol_Decay_Analyser
 {
@@ -29,7 +31,7 @@ namespace Lol_Decay_Analyser
             services.AddControllersWithViews();
             services.AddDbContext<RiotContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("RiotContext")));
-            services.AddSingleton<RiotConnection>();
+            services.AddTransient<RiotConnection>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -41,7 +43,7 @@ namespace Lol_Decay_Analyser
             }
             else
             {
-                app.UseExceptionHandler("/Home/Error");
+                app.UseExceptionHandler("/riot/Error");
                 // The default HSTS value is 30 days. You may want to change this for production scenarios, see https://aka.ms/aspnetcore-hsts.
                 app.UseHsts();
             }
@@ -56,7 +58,7 @@ namespace Lol_Decay_Analyser
             {
                 endpoints.MapControllerRoute(
                     name: "default",
-                    pattern: "{controller=Home}/{action=Index}/{id?}");
+                    pattern: "{controller=riot}/{action=Index}/{id?}");
             });
         }
     }

@@ -25,13 +25,8 @@ namespace Lol_Decay_Analyser.Controllers
         // GET: Riot
         public async Task<IActionResult> Index()
         {
-            List<RiotModel> list = new List<RiotModel>();
-            var test = await _context.Riots.ToListAsync();
-            //add foreach
-            foreach (var item in test)
-            {
-                list.Add(_Api.GetUserFromAPi(item));
-            }
+            var getDB = await _context.Riots.ToListAsync();
+            var list = getDB.Select(x => _Api.GetUserFromAPi(x)).ToList();
             return View(list);
         }
 

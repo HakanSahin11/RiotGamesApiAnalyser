@@ -22,44 +22,6 @@ namespace Lol_Decay_Analyser.Models
                 {
                     return;   // DB has been seeded
                 }
-             //   RiotUser();
-                context.Riots.AddRange(
-                    new RiotModel
-                    {
-                        SummonerName = "ImWorstNightmare",
-                        LastMatch = null,
-                        Rank = null,
-                        TimeRemain = null,
-                        Region = "Euw1"
-                    },
-
-                    new RiotModel
-                    {
-                        SummonerName = "A Wild Nightmare",
-                        LastMatch = null,
-                        Rank = null,
-                        TimeRemain = null,
-                        Region = "Euw1"
-                    },
-
-                    new RiotModel
-                    {
-                        SummonerName = "League of Inting",
-                        LastMatch = null,
-                        Rank = null,
-                        TimeRemain = null,
-                        Region = "Euw1"
-                    },
-
-                    new RiotModel
-                    {
-                        SummonerName = "Mr Donald Trump",
-                        LastMatch = null,
-                        Rank = null,
-                        TimeRemain = null,
-                        Region = "Euw1"
-                    }
-                );
                 context.SaveChanges();
             }
         }

@@ -1,4 +1,5 @@
-﻿using Lol_Decay_Analyser.Models;
+﻿using Lol_Decay_Analyser.Data;
+using Lol_Decay_Analyser.Models;
 using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
@@ -10,6 +11,12 @@ namespace Lol_Decay_Analyser.Helper_Classes
 {
     public class RiotConnection
     {
+        private readonly RiotContext _context;
+        public RiotConnection(RiotContext context)
+        {
+            _context = context;
+        }
+
         private readonly string _ApiKey = "###";
 
         private readonly List<string> ListOfRegions = new List<string> { "ALL", "EUW", "EUNE", "NA", "BR", "LAN", "LAS", "OCE", "RU", "TR", "JP", "KR" };
@@ -50,7 +57,9 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 var LastMatch = GetLastMatchFromAPI(savedUser, User.accountId);
                 var lastMatchTime = UnixTimeToDateTime(LastMatch.timestamp);
                 var rank = GetRankFromAPI(savedUser, User.id);
-                return new RiotModel {SummonerName = savedUser.SummonerName, LastMatch = lastMatchTime, Rank = $"{rank.tier} {rank.rank}", TimeRemain = null, Region = savedUser.Region };
+                return new RiotModel {SummonerName = savedUser.SummonerName, LastMatch = lastMatchTime, Rank = $"{rank.tier} {rank.rank}", 
+                    TimeRemain = null, Region = savedUser.Region, 
+                    Id = _context.Riots.Where(x => x.SummonerName == savedUser.SummonerName && x.Region == savedUser.Region).FirstOrDefault().Id  };
             }
             catch
             {
