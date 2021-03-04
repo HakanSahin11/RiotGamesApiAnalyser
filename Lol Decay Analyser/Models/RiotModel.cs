@@ -110,4 +110,20 @@ namespace Lol_Decay_Analyser.Models
         bool freshBlood { get; set; }
         bool hotStreak { get; set; }
     }
+    public class ListFormatter
+    {
+        public ListFormatter(List<Match> matches, DateTime lastMatch, DateTime? timer, int gamesLeft)
+        {
+            Matches = matches;
+            LastMatch = lastMatch;
+            Timer = timer;
+            GamesLeft = gamesLeft;
+        }
+
+        public List<Match> Matches { get; set; }
+        public DateTime LastMatch { get; set; }
+        public DateTime? Timer { get; set; }
+        public int GamesLeft { get; set; }
+    }
+
 }
