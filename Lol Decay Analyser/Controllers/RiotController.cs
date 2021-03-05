@@ -11,6 +11,7 @@ using Lol_Decay_Analyser.Helper_Classes;
 
 namespace Lol_Decay_Analyser.Controllers
 {
+    //Note til næste gang: Lav en ny model som er ment for DB kun, som indeholder Summonername + Region, scaffold det osv for support
     public class RiotController : Controller
     {
         private readonly RiotContext _context;
@@ -59,7 +60,7 @@ namespace Lol_Decay_Analyser.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("Id,SummonerName,LastMatch,Rank,TimeRemain,Region")] RiotModel riotModel)
+        public async Task<IActionResult> Create([Bind("Id,SummonerName,Region,Rank,LastMatch,RemainingGames,TimeRemain")] RiotModel riotModel)
         {
             if (ModelState.IsValid)
             {
@@ -91,7 +92,7 @@ namespace Lol_Decay_Analyser.Controllers
         // more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("Id,SummonerName,LastMatch,Rank,TimeRemain,Region")] RiotModel riotModel)
+        public async Task<IActionResult> Edit(int id, [Bind("Id,SummonerName,Region,Rank,LastMatch,RemainingGames,TimeRemain")] RiotModel riotModel)
         {
             if (id != riotModel.Id)
             {

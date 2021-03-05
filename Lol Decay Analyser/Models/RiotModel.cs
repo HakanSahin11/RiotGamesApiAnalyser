@@ -11,8 +11,9 @@ namespace Lol_Decay_Analyser.Models
         public string SummonerName { get; set; }
         public DateTime? LastMatch { get; set; }
         public string Rank { get; set; }
-        public int? TimeRemain { get; set; }
+        public DateTime? TimeRemain { get; set; }
         public string Region { get; set; }
+        public int RemainingGames { get; set; }
     }
     public class RankedModel
     {

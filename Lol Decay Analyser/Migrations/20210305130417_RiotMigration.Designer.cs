@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lol_Decay_Analyser.Migrations
 {
     [DbContext(typeof(RiotContext))]
-    [Migration("20210224124446_RiotInitial")]
-    partial class RiotInitial
+    [Migration("20210305130417_RiotMigration")]
+    partial class RiotMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -36,6 +36,9 @@ namespace Lol_Decay_Analyser.Migrations
 
                     b.Property<string>("Region")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RemainingGames")
+                        .HasColumnType("int");
 
                     b.Property<string>("SummonerName")
                         .HasColumnType("nvarchar(max)");

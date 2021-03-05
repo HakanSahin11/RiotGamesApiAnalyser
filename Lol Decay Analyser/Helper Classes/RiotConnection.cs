@@ -29,17 +29,60 @@ namespace Lol_Decay_Analyser.Helper_Classes
                new RankedModel("Challenger",  7,10 )
             };
 
-         public IUserModel GetAccountFromAPI(RiotModel savedUsers)
+        public string ConvertRegion(string content)
         {
-            return JsonConvert.DeserializeObject<UserModel>(new WebClient().DownloadString($"https://{savedUsers.Region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{savedUsers.SummonerName}?api_key={_ApiKey}"));
+            // Converts regions to match Riot Devoloper APi Region requests
+            string result = "";
+            switch (content)
+            {
+                case "EUW":
+                    result = "Euw1";
+                    break;
+                case "EUNE":
+                    result = "Eun1";
+                    break;
+                case "NA":
+                    result = "Na1";
+                    break;
+                case "BR":
+                    result = "Br1";
+                    break;
+                case "LAN":
+                    result = "La1";
+                    break;
+                case "LAS":
+                    result = "La2";
+                    break;
+                case "OCE":
+                    result = "Oc1";
+                    break;
+                case "RU":
+                    result = "Ru1";
+                    break;
+                case "TR":
+                    result = "Tr1";
+                    break;
+                case "JP":
+                    result = "Jp1";
+                    break;
+                case "KR":
+                    result = "Kr";
+                    break;
+            }
+            return result;
         }
-        public List<Match> GetMatchesFromAPI(RiotModel savedUser, string accountId)
+
+        public IUserModel GetAccountFromAPI(RiotModel savedUsers, string region)
         {
-            return JsonConvert.DeserializeObject<MatchesModel>(new WebClient().DownloadString($"https://{savedUser.Region}.api.riotgames.com/lol/match/v4/matchlists/by-account/{accountId}?queue=420&api_key={_ApiKey}")).matches.Take(10).ToList();
+            return JsonConvert.DeserializeObject<UserModel>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{savedUsers.SummonerName}?api_key={_ApiKey}"));
         }
-        public IRankModel GetRankFromAPI(RiotModel savedUsers, string SummonerId)
+        public List<Match> GetMatchesFromAPI(RiotModel savedUser, string accountId, string region)
         {
-            return JsonConvert.DeserializeObject<List<RankModel>>(new WebClient().DownloadString($"https://{savedUsers.Region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{SummonerId}?api_key={_ApiKey}"))[0];
+            return JsonConvert.DeserializeObject<MatchesModel>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v4/matchlists/by-account/{accountId}?queue=420&api_key={_ApiKey}")).matches.Take(10).ToList();
+        }
+        public IRankModel GetRankFromAPI(RiotModel savedUsers, string SummonerId, string region)
+        {
+            return JsonConvert.DeserializeObject<List<RankModel>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{SummonerId}?api_key={_ApiKey}"))[0];
         }
 
         public static DateTime UnixTimeToDateTime(long unixtime)
@@ -95,16 +138,19 @@ namespace Lol_Decay_Analyser.Helper_Classes
         {
             try
             {
-                var User = GetAccountFromAPI(savedUser);
-                var rank = GetRankFromAPI(savedUser, User.id);
-                var Matches = GetMatchesFromAPI(savedUser, User.accountId);
+                var convertedRegion = ConvertRegion(savedUser.Region);
+            //    var convertedRegion = savedUser.Region;
+
+                var User = GetAccountFromAPI(savedUser,convertedRegion);
+                var rank = GetRankFromAPI(savedUser, User.id, convertedRegion);
+                var Matches = GetMatchesFromAPI(savedUser, User.accountId, convertedRegion);
                 var FormattedMatches = ListFormatter(rank.tier, Matches);
 
                 // add section for games left, time remaining
 
                 return new RiotModel {SummonerName = savedUser.SummonerName, Rank = $"{rank.tier} {rank.rank}", 
-                    TimeRemain = null, Region = savedUser.Region, 
-                    Id = _context.Riots.Where(x => x.SummonerName == savedUser.SummonerName && x.Region == savedUser.Region).FirstOrDefault().Id , LastMatch = FormattedMatches.LastMatch };
+                    TimeRemain = FormattedMatches.Timer, Region = savedUser.Region, 
+                    Id = _context.Riots.Where(x => x.SummonerName == savedUser.SummonerName && x.Region == savedUser.Region).FirstOrDefault().Id , LastMatch = FormattedMatches.LastMatch, RemainingGames = FormattedMatches.GamesLeft };
             }
             catch
             {

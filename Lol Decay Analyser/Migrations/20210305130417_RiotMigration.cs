@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Lol_Decay_Analyser.Migrations
 {
-    public partial class RiotInitial : Migration
+    public partial class RiotMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -17,7 +17,8 @@ namespace Lol_Decay_Analyser.Migrations
                     LastMatch = table.Column<DateTime>(nullable: true),
                     Rank = table.Column<string>(nullable: true),
                     TimeRemain = table.Column<int>(nullable: true),
-                    Region = table.Column<string>(nullable: true)
+                    Region = table.Column<string>(nullable: true),
+                    RemainingGames = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {

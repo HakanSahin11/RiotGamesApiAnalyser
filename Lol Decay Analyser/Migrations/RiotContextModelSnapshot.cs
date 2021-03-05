@@ -35,6 +35,9 @@ namespace Lol_Decay_Analyser.Migrations
                     b.Property<string>("Region")
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("RemainingGames")
+                        .HasColumnType("int");
+
                     b.Property<string>("SummonerName")
                         .HasColumnType("nvarchar(max)");
 

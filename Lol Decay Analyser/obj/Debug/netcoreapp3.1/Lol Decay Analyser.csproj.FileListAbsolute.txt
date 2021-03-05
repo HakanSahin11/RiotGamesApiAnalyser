@@ -338,8 +338,6 @@ C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\ne
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs
-C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Test\Index.cshtml.g.cs
-C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Test\Welcome.cshtml.g.cs
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\_ViewImports.cshtml.g.cs
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\_ViewStart.cshtml.g.cs
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.RazorTargetAssemblyInfo.cache

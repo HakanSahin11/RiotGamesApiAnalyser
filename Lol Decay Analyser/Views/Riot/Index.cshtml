@@ -16,17 +16,21 @@
                 @Html.DisplayNameFor(model => model.SummonerName)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.LastMatch)
+                @Html.DisplayNameFor(model => model.Region)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Rank)
             </th>
             <th>
+                @Html.DisplayNameFor(model => model.RemainingGames)
+            </th>
+            <th>
                 @Html.DisplayNameFor(model => model.TimeRemain)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.Region)
+                @Html.DisplayNameFor(model => model.LastMatch)
             </th>
+
             <th></th>
         </tr>
     </thead>
@@ -37,17 +41,21 @@
                 @Html.DisplayFor(modelItem => item.SummonerName)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.LastMatch)
+                @Html.DisplayFor(modelItem => item.Region)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Rank)
             </td>
             <td>
+                @Html.DisplayFor(modelItem => item.RemainingGames)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.TimeRemain)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.Region)
+                @Html.DisplayFor(modelItem => item.LastMatch)
             </td>
+
             <td>
                 <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
                 <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
