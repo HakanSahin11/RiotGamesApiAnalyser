@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Lol_Decay_Analyser.Models
 {
-    public class RiotModel
+    public class RiotModel : IRiotDBModel
     {
         public int Id { get; set; }
         public string SummonerName { get; set; }
@@ -28,6 +28,21 @@ namespace Lol_Decay_Analyser.Models
         public int DayInterval { get; set; }
         public int MinimumIntervalValue { get; set; }
     }
+    public class RiotDBModel: IRiotDBModel
+    {
+        public int Id { get; set; }
+        public string SummonerName { get; set; }
+        public string Region { get; set; }
+    }
+
+    public interface IRiotDBModel
+    {
+        int Id { get; set; }
+        string SummonerName { get; set; }
+        string Region { get; set; }
+    }
+
+
     public interface IUserModel
     {
         string id { get; set; }

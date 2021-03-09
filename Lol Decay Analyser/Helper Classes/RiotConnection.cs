@@ -31,9 +31,10 @@ namespace Lol_Decay_Analyser.Helper_Classes
 
         public string ConvertRegion(string content)
         {
+            
             // Converts regions to match Riot Devoloper APi Region requests
             string result = "";
-            switch (content)
+            switch (content.ToUpper())
             {
                 case "EUW":
                     result = "Euw1";
@@ -72,15 +73,15 @@ namespace Lol_Decay_Analyser.Helper_Classes
             return result;
         }
 
-        public IUserModel GetAccountFromAPI(RiotModel savedUsers, string region)
+        public IUserModel GetAccountFromAPI(IRiotDBModel savedUsers, string region)
         {
             return JsonConvert.DeserializeObject<UserModel>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{savedUsers.SummonerName}?api_key={_ApiKey}"));
         }
-        public List<Match> GetMatchesFromAPI(RiotModel savedUser, string accountId, string region)
+        public List<Match> GetMatchesFromAPI(IRiotDBModel savedUser, string accountId, string region)
         {
             return JsonConvert.DeserializeObject<MatchesModel>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v4/matchlists/by-account/{accountId}?queue=420&api_key={_ApiKey}")).matches.Take(10).ToList();
         }
-        public IRankModel GetRankFromAPI(RiotModel savedUsers, string SummonerId, string region)
+        public IRankModel GetRankFromAPI(IRiotDBModel savedUsers, string SummonerId, string region)
         {
             return JsonConvert.DeserializeObject<List<RankModel>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{SummonerId}?api_key={_ApiKey}"))[0];
         }
@@ -134,7 +135,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
 
         private List<DateTime> Testing = new List<DateTime>();
 
-        public RiotModel GetUserFromAPi(RiotModel savedUser)
+        public RiotModel GetUserFromAPi(IRiotDBModel savedUser)
         {
             try
             {

@@ -1,4 +1,4 @@
-﻿@model Lol_Decay_Analyser.Models.RiotModel
+﻿@model Lol_Decay_Analyser.Models.IRiotDBModel
 
 @{
     ViewData["Title"] = "Create";
@@ -6,7 +6,7 @@
 
 <h1>Create</h1>
 
-<h4>RiotModel</h4>
+<h4>Riot</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
@@ -22,26 +22,28 @@
                 <input asp-for="Region" class="form-control" />
                 <span asp-validation-for="Region" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Rank" class="control-label"></label>
-                <input asp-for="Rank" class="form-control" />
-                <span asp-validation-for="Rank" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="RemainingGames" class="control-label"></label>
-                <input asp-for="RemainingGames" class="form-control" />
-                <span asp-validation-for="RemainingGames" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="TimeRemain" class="control-label"></label>
-                <input asp-for="TimeRemain" class="form-control" />
-                <span asp-validation-for="TimeRemain" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="LastMatch" class="control-label"></label>
-                <input asp-for="LastMatch" class="form-control" />
-                <span asp-validation-for="LastMatch" class="text-danger"></span>
-            </div>
+            <!--
+    <div class="form-group">
+        <label asp-for="Rank" class="control-label"></label>
+        <input asp-for="Rank" class="form-control" />
+        <span asp-validation-for="Rank" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="RemainingGames" class="control-label"></label>
+        <input asp-for="RemainingGames" class="form-control" />
+        <span asp-validation-for="RemainingGames" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="TimeRemain" class="control-label"></label>
+        <input asp-for="TimeRemain" class="form-control" />
+        <span asp-validation-for="TimeRemain" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="LastMatch" class="control-label"></label>
+        <input asp-for="LastMatch" class="form-control" />
+        <span asp-validation-for="LastMatch" class="text-danger"></span>
+    </div>
+        -->
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
             </div>
