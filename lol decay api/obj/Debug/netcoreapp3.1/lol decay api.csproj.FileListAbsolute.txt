@@ -1,0 +1,25 @@
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\appsettings.Development.json
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\appsettings.json
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\lol decay api.exe
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\lol decay api.deps.json
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\lol decay api.runtimeconfig.json
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\lol decay api.runtimeconfig.dev.json
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\lol decay api.dll
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\lol decay api.pdb
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.csprojAssemblyReference.cache
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.AssemblyInfoInputs.cache
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.AssemblyInfo.cs
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.csproj.CoreCompileInputs.cache
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\staticwebassets\lol decay api.StaticWebAssets.Manifest.cache
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\staticwebassets\lol decay api.StaticWebAssets.xml
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\scopedcss\bundle\lol decay api.styles.css
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.RazorTargetAssemblyInfo.cache
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.dll
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.pdb
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.genruntimeconfig.cache
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.dll
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\obj\Debug\netcoreapp3.1\lol decay api.csproj.CopyComplete
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+C:\Users\Hakan\source\repos\lol decay api\lol decay api\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

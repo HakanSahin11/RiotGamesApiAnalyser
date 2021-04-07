@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30804.86
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "lol decay api", "lol decay api\lol decay api.csproj", "{436CBA40-BCD5-4B48-96CD-2A22E51F2401}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{436CBA40-BCD5-4B48-96CD-2A22E51F2401}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{436CBA40-BCD5-4B48-96CD-2A22E51F2401}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{436CBA40-BCD5-4B48-96CD-2A22E51F2401}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{436CBA40-BCD5-4B48-96CD-2A22E51F2401}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DFE55AA5-7E43-4ADD-8B76-5A6D762658D4}
+	EndGlobalSection
+EndGlobal
