@@ -11,6 +11,6 @@ namespace Lol_Decay_Analyser.Data
     {
         public RiotContext (DbContextOptions<RiotContext> options)
             : base(options) { }
-        public DbSet<RiotDBModel> Riots { get; set; }
+        public DbSet<RiotDBModel> Riot { get; set; }
     }
 }

@@ -32,6 +32,8 @@ namespace Lol_Decay_Analyser
             services.AddDbContext<RiotContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("RiotContext")));
             services.AddTransient<RiotConnection>();
+
+            var testing = Configuration.GetConnectionString("RiotContext");
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

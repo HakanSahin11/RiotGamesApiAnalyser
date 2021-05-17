@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lol_Decay_Analyser.Migrations
 {
     [DbContext(typeof(RiotContext))]
-    [Migration("20210309135157_Initial")]
-    partial class Initial
+    [Migration("20210413082645_InitialRiot")]
+    partial class InitialRiot
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -35,7 +35,7 @@ namespace Lol_Decay_Analyser.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Riots");
+                    b.ToTable("Riot");
                 });
 #pragma warning restore 612, 618
         }

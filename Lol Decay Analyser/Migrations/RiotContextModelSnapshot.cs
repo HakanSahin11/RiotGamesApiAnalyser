@@ -33,7 +33,7 @@ namespace Lol_Decay_Analyser.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Riots");
+                    b.ToTable("Riot");
                 });
 #pragma warning restore 612, 618
         }

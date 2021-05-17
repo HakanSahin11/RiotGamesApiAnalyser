@@ -26,8 +26,9 @@ namespace Lol_Decay_Analyser.Controllers
         // GET: Riot
         public async Task<IActionResult> Index()
         {
-            var getDB = await _context.Riots.ToListAsync();
+            var getDB = await _context.Riot.ToListAsync();
             var list = getDB.Select(x => _Api.GetUserFromAPi(x)).ToList();
+
             return View(list);
         }
 
@@ -39,7 +40,7 @@ namespace Lol_Decay_Analyser.Controllers
                 return NotFound();
             }
 
-            var riotModel = await _context.Riots
+            var riotModel = await _context.Riot
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (riotModel == null)
             {
@@ -80,7 +81,7 @@ namespace Lol_Decay_Analyser.Controllers
                 return NotFound();
             }
 
-            var riotModel = await _context.Riots.FindAsync(id);
+            var riotModel = await _context.Riot.FindAsync(id);
             if (riotModel == null)
             {
                 return NotFound();
@@ -131,7 +132,7 @@ namespace Lol_Decay_Analyser.Controllers
                 return NotFound();
             }
 
-            var riotModel = await _context.Riots
+            var riotModel = await _context.Riot
                 .FirstOrDefaultAsync(m => m.Id == id);
             if (riotModel == null)
             {
@@ -146,15 +147,15 @@ namespace Lol_Decay_Analyser.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var riotModel = await _context.Riots.FindAsync(id);
-            _context.Riots.Remove(riotModel);
+            var riotModel = await _context.Riot.FindAsync(id);
+            _context.Riot.Remove(riotModel);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
 
         private bool RiotModelExists(int id)
         {
-            return _context.Riots.Any(e => e.Id == id);
+            return _context.Riot.Any(e => e.Id == id);
         }
     }
 }

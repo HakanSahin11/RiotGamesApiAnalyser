@@ -18,7 +18,7 @@ namespace Lol_Decay_Analyser.Models
                     DbContextOptions<RiotContext>>()))
             {
                 // Look for any movies.
-                if (context.Riots.Any())
+                if (context.Riot.Any())
                 {
                     return;   // DB has been seeded
                 }

@@ -2,12 +2,12 @@
 
 namespace Lol_Decay_Analyser.Migrations
 {
-    public partial class Initial : Migration
+    public partial class InitialRiot : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Riots",
+                name: "Riot",
                 columns: table => new
                 {
                     Id = table.Column<int>(nullable: false)
@@ -17,14 +17,14 @@ namespace Lol_Decay_Analyser.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Riots", x => x.Id);
+                    table.PrimaryKey("PK_Riot", x => x.Id);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Riots");
+                name: "Riot");
         }
     }
 }

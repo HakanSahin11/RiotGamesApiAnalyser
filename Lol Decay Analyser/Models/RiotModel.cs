@@ -126,6 +126,17 @@ namespace Lol_Decay_Analyser.Models
         bool freshBlood { get; set; }
         bool hotStreak { get; set; }
     }
+    public class ListFormatterConfirm
+    {
+        public ListFormatterConfirm(ListFormatter listFormatter, bool validate)
+        {
+            ListFormatter = listFormatter;
+            Validate = validate;
+        }
+
+        public ListFormatter ListFormatter { get; set; }
+        public bool Validate { get; set; }
+    }
     public class ListFormatter
     {
         public ListFormatter(List<Match> matches, DateTime lastMatch, DateTime? timer, int gamesLeft)
