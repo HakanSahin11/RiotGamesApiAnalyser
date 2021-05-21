@@ -18,8 +18,9 @@ namespace Lol_Decay_Analyser.Helper_Classes
             _context = context;
         }
 
+        private readonly string _ApiKey = "RGAPI-307ab5f0-f415-40fe-8d3c-e9c1407ff655";
 
-        private readonly string _ApiKey = "###";
+        //private readonly string _ApiKey = "###";
 
 
         private readonly List<string> ListOfRegions = new List<string> { "ALL", "EUW", "EUNE", "NA", "BR", "LAN", "LAS", "OCE", "RU", "TR", "JP", "KR" };
@@ -27,9 +28,9 @@ namespace Lol_Decay_Analyser.Helper_Classes
         private readonly List<RankedModel> ListOfRanks = new List<RankedModel>
             {
                new RankedModel("Diamond",    28 ,4),
-               new RankedModel("Master",      7 ,10),
-               new RankedModel("GrandMaster", 7,10 ),
-               new RankedModel("Challenger",  7,10 )
+               new RankedModel("Master",      10 ,10),
+               new RankedModel("GrandMaster", 10,10 ),
+               new RankedModel("Challenger",  10,10 )
             };
 
         public string ConvertRegion(string content)
