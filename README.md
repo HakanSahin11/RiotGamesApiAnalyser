@@ -1,5 +1,5 @@
 # RiotGamesApiAnalyser
-- App needs update to match changes made on the Riot API end -
+- App needs update to match changes made on the Riot API end 
 
 Personal spare time project of mine.
 Made to keep a track of the decay state of League of Legends accounts.
