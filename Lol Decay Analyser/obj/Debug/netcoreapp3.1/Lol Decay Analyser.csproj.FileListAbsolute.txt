@@ -175,7 +175,6 @@ C:\Users\Hakan\source\repos\Lol Decay Analyser\Lol Decay Analyser\obj\Debug\netc
 C:\Users\Hakan\source\repos\Lol Decay Analyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Details.cshtml.g.cs
 C:\Users\Hakan\source\repos\Lol Decay Analyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Edit.cshtml.g.cs
 C:\Users\Hakan\source\repos\Lol Decay Analyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Razor\Views\Movies\Index.cshtml.g.cs
-C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.csprojAssemblyReference.cache
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.AssemblyInfoInputs.cache
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.AssemblyInfo.cs
 C:\Users\Hakan\source\repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.csproj.CoreCompileInputs.cache
@@ -525,3 +524,5 @@ C:\Users\hakan\source\repos\RiotGamesApiAnalyser\RiotGamesApiAnalyser\Lol Decay 
 C:\Users\hakan\source\repos\RiotGamesApiAnalyser\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.dll
 C:\Users\hakan\source\repos\RiotGamesApiAnalyser\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.pdb
 C:\Users\hakan\source\repos\RiotGamesApiAnalyser\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.genruntimeconfig.cache
+C:\Users\Hakan\Source\Repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.csproj.AssemblyReference.cache
+C:\Users\Hakan\Source\Repos\RiotGamesApiAnalyser\Lol Decay Analyser\obj\Debug\netcoreapp3.1\Lol Decay Analyser.GeneratedMSBuildEditorConfig.editorconfig

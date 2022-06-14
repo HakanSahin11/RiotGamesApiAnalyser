@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Lol_Decay_Analyser.Migrations
 {
     [DbContext(typeof(RiotContext))]
-    [Migration("20210413082645_InitialRiot")]
-    partial class InitialRiot
+    [Migration("20210901151456_Initial")]
+    partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {

@@ -2,7 +2,7 @@
 
 namespace Lol_Decay_Analyser.Migrations
 {
-    public partial class InitialRiot : Migration
+    public partial class Initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {

@@ -80,9 +80,11 @@ namespace Lol_Decay_Analyser.Helper_Classes
         {
             return JsonConvert.DeserializeObject<UserModel>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{savedUsers.SummonerName}?api_key={_ApiKey}"));
         }
-        public List<Match> GetMatchesFromAPI(string accountId, string region)
+        public List<Match> GetMatchesFromAPI(string puuId, string region)
         {
-            return JsonConvert.DeserializeObject<MatchesModel>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v4/matchlists/by-account/{accountId}?queue=420&api_key={_ApiKey}")).matches.Take(10).ToList();
+            var json = new WebClient().DownloadString($"https://Europe.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuId}/ids?queue=420&start=0&count=20&api_key={_ApiKey}");
+            var test = JsonConvert.DeserializeObject<MatchesModel>(json);
+            return null;
         }
         public IRankModel GetRankFromAPI(string SummonerId, string region)
         {
@@ -108,8 +110,10 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 var timeframe = DateTime.Now.AddDays(-ruleset.DayInterval);
 
                 List<Match> formattedMatches = new List<Match>();
-                formattedMatches.AddRange(matches.Where(x => UnixTimeToDateTime(x.timestamp) > timeframe).Take(ruleset.MinimumIntervalValue));
-                
+                formattedMatches.AddRange(matches.Where(x => UnixTimeToDateTime(x.info.gameCreation) > timeframe).Take(ruleset.MinimumIntervalValue));
+
+
+                               
                 //mail service?
                 if (formattedMatches.Count > ruleset.MinimumIntervalValue || formattedMatches.Count == ruleset.MinimumIntervalValue)
                     validate = true;
@@ -118,8 +122,8 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 {
                     return new ListFormatterConfirm( new ListFormatter(
                     formattedMatches,
-                    UnixTimeToDateTime(formattedMatches.FirstOrDefault().timestamp),
-                    UnixTimeToDateTime(formattedMatches.LastOrDefault().timestamp).AddDays(ruleset.DayInterval),
+                    UnixTimeToDateTime(formattedMatches.FirstOrDefault().info.gameCreation),
+                    UnixTimeToDateTime(formattedMatches.LastOrDefault().info.gameCreation).AddDays(ruleset.DayInterval),
                     ruleset.MinimumIntervalValue - formattedMatches.Count), validate);
                 }
                 
@@ -127,21 +131,21 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 else
                 {
                     return
-                        new ListFormatterConfirm(new ListFormatter(matches, UnixTimeToDateTime(matches.FirstOrDefault().timestamp), DateTime.Now, ruleset.MinimumIntervalValue), validate);
+                        new ListFormatterConfirm(new ListFormatter(matches, UnixTimeToDateTime(matches.FirstOrDefault().info.gameCreation), DateTime.Now, ruleset.MinimumIntervalValue), validate);
                 }
             }
             // For ranks under the supported decay ranks
             else
-                return new ListFormatterConfirm(new ListFormatter(matches, UnixTimeToDateTime(matches.FirstOrDefault().timestamp), null, 0), validate);
+                return new ListFormatterConfirm(new ListFormatter(matches, UnixTimeToDateTime(matches.FirstOrDefault().info.gameCreation), null, 0), validate);
         }
         public RiotModel GetUserFromAPi(IRiotDBModel savedUser)
         {
-            try
-            {
+            //try
+          //  {
                 var convertedRegion = ConvertRegion(savedUser.Region);
                 var User = GetAccountFromAPI(savedUser,convertedRegion);
-                var rank = GetRankFromAPI(User.id, convertedRegion);
-                var Matches = GetMatchesFromAPI(User.accountId, convertedRegion);
+                var rank = GetRankFromAPI(User.id, convertedRegion);                
+                var Matches = GetMatchesFromAPI(User.puuid, convertedRegion);
                 var FormattedMatches = ListFormatter(rank.tier, Matches);
 
                 // add section for games left, time remaining
@@ -149,11 +153,11 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 return new RiotModel {SummonerName = savedUser.SummonerName, Rank = $"{rank.tier} {rank.rank}", 
                     TimeRemain = FormattedMatches.ListFormatter.Timer, Region = savedUser.Region, 
                     Id = _context.Riot.Where(x => x.SummonerName == savedUser.SummonerName && x.Region == savedUser.Region).FirstOrDefault().Id , LastMatch = FormattedMatches.ListFormatter.LastMatch, RemainingGames = FormattedMatches.ListFormatter.GamesLeft };
-            }
-            catch
-            {
-                return null;
-            }
+        //    }
+          //  catch
+            //{
+              //  return null;
+            //}
         }      
     }
 }

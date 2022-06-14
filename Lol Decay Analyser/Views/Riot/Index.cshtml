@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Lol_Decay_Analyser.Models.RiotModel>
+﻿@model IEnumerable<Lol_Decay_Analyser.Models.RiotModel> 
 
 @{
     ViewData["Title"] = "Index";
@@ -36,33 +36,30 @@
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.SummonerName)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Region)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Rank)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.RemainingGames)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.TimeRemain)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.LastMatch)
-            </td>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SummonerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Region)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Rank)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RemainingGames)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TimeRemain)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LastMatch)
+                </td>
 
-            <td>
-                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
-            </td>
-        </tr>
-}
+                
+            </tr>
+        }
     </tbody>
 </table>

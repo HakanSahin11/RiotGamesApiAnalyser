@@ -17,11 +17,12 @@ namespace Lol_Decay_Analyser.Models
                 serviceProvider.GetRequiredService<
                     DbContextOptions<RiotContext>>()))
             {
-                // Look for any movies.
+                context.Database.EnsureCreated();
                 if (context.Riot.Any())
                 {
                     return;   // DB has been seeded
                 }
+
                 context.SaveChanges();
             }
         }

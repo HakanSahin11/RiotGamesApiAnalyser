@@ -71,27 +71,14 @@ namespace Lol_Decay_Analyser.Models
         }
         public List<Match> matches { get; set; }
     }
-    public class Match : IMatch
+    public class Match
     {
-        public string platformId { get; set; }
-        public double gameId { get; set; }
-        public double champion { get; set; }
-        public double queue { get; set; }
-        public double season { get; set; }
-        public long timestamp { get; set; }
-        public string role { get; set; }
-        public string lane { get; set; }
+        public info info {get;set;}
     }
-    public interface IMatch
+
+    public class info
     {
-        string platformId { get; set; }
-        double gameId { get; set; }
-        double champion { get; set; }
-        double queue { get; set; }
-        double season { get; set; }
-        long timestamp { get; set; }
-        string role { get; set; }
-        string lane { get; set; }
+        public long gameCreation { get; set; }
     }
 
     public class RankModel : IRankModel
