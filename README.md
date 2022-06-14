@@ -1,5 +1,6 @@
 # RiotGamesApiAnalyser
 - App needs update to match changes made on the Riot API end 
+- NOTICE: You will need to implement your own personal API key into the RiotConnection.cs to make a connection
 
 Personal spare time project of mine.
 Made to keep a track of the decay state of League of Legends accounts.
@@ -9,4 +10,3 @@ Decay is basically the interval whereas a player is needed to have played X numb
 The Application is made through C# MVC and has a direct connection to the Riot Games Developer API.
 The database for the utilization is through an SQL database which stores the Summoner names and Regions of formerly searched users.
 
-NOTICE: You will need to implement your own personal API key into the RiotConnection.cs to make a connection
