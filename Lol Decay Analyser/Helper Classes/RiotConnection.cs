@@ -24,7 +24,6 @@ namespace Lol_Decay_Analyser.Helper_Classes
 
         //ENTER API KEY HERE
         private readonly string _ApiKey = "###";
-        private int numOfcalls = 0;
         private readonly List<RankedModel> ListOfRanks = new List<RankedModel>
             {
                new RankedModel("Diamond",    28 ,4),
@@ -80,17 +79,15 @@ namespace Lol_Decay_Analyser.Helper_Classes
         #region API Calls
         public IUserModel GetAccountFromAPI(IRiotDBModel savedUsers, string region)
         {
-            numOfcalls++;
             return JsonConvert.DeserializeObject<UserModel>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{savedUsers.SummonerName}?api_key={_ApiKey}"));
         }
 
         public IRankModel GetRankFromAPI(string SummonerId, string region)
         {
-            numOfcalls++;
             return JsonConvert.DeserializeObject<List<RankModel>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{SummonerId}?api_key={_ApiKey}"))[0];
         }
 
-        public List<DateTime> GetMatchesFromAPI(string puuId, string region)
+        public List<DateTime> GetMatchesFromAPI(string puuId, string region, string rank)
         {
             if (region.Equals("Euw1", StringComparison.OrdinalIgnoreCase) || region.Equals("Eun1", StringComparison.OrdinalIgnoreCase))
                 region = "Europe";
@@ -100,12 +97,13 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 region = "Asia";
 
             var DecayIntervalRuleset = (ListOfRanks.FirstOrDefault(x => x.Rank.Equals("Diamond", StringComparison.CurrentCultureIgnoreCase))).MinimumIntervalValue;
-            numOfcalls++;
+        
+            
+            
             var matchIds = JsonConvert.DeserializeObject<List<string>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuId}/ids?queue=420&start=0&count={DecayIntervalRuleset++}&api_key={_ApiKey}"));
             var matchList = new List<DateTime>();
             foreach (var item in matchIds)
             {
-                numOfcalls++;
                 var json = JsonConvert.DeserializeObject<Match>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v5/matches/{item}?api_key={_ApiKey}"));
                 var timer = UnixTimeToDateTime(json.info.gameCreation);
                 matchList.Add(timer); 
@@ -179,7 +177,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 var convertedRegion = ConvertRegion(savedUser.Region);
                 var User = GetAccountFromAPI(savedUser,convertedRegion);
                 var rank = GetRankFromAPI(User.id, convertedRegion);                
-                var MatchTimers = GetMatchesFromAPI(User.puuid, convertedRegion);
+                var MatchTimers = GetMatchesFromAPI(User.puuid, convertedRegion, rank.tier);
                 var FormattedMatches = ListFormatter(rank.tier, MatchTimers);
                 
                 return new RiotModel {SummonerName = savedUser.SummonerName, Rank = $"{rank.tier} {rank.rank}", 
