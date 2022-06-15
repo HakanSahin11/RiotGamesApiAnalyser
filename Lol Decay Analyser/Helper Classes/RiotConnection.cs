@@ -19,8 +19,8 @@ namespace Lol_Decay_Analyser.Helper_Classes
         }
 
         // Number of api calls per user by rank: 
-        // Diamond: 14
-        // Master, Grand Master, Challenger: 7
+        // Diamond: 8
+        // Master, Grand Master, Challenger: 14
 
         //ENTER API KEY HERE
         private readonly string _ApiKey = "###";
@@ -34,7 +34,6 @@ namespace Lol_Decay_Analyser.Helper_Classes
 
         public string ConvertRegion(string content)
         {
-            
             // Converts regions to match Riot Devoloper APi Region requests
             string result = "";
             switch (content.ToUpper())
@@ -96,11 +95,8 @@ namespace Lol_Decay_Analyser.Helper_Classes
             else
                 region = "Asia";
 
-            var DecayIntervalRuleset = (ListOfRanks.FirstOrDefault(x => x.Rank.Equals("Diamond", StringComparison.CurrentCultureIgnoreCase))).MinimumIntervalValue;
-        
-            
-            
-            var matchIds = JsonConvert.DeserializeObject<List<string>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuId}/ids?queue=420&start=0&count={DecayIntervalRuleset++}&api_key={_ApiKey}"));
+            var DecayIntervalRuleset = (ListOfRanks.FirstOrDefault(x => x.Rank.Equals(rank, StringComparison.CurrentCultureIgnoreCase))).MinimumIntervalValue;
+            var matchIds = JsonConvert.DeserializeObject<List<string>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuId}/ids?queue=420&start=0&count={DecayIntervalRuleset + 1}&api_key={_ApiKey}"));
             var matchList = new List<DateTime>();
             foreach (var item in matchIds)
             {
@@ -111,8 +107,6 @@ namespace Lol_Decay_Analyser.Helper_Classes
 
             return matchList;
         }
-       
-
         #endregion
 
         #region API Formatter
@@ -135,10 +129,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 var timeframe = DateTime.Now.AddDays(-ruleset.DayInterval);
 
                 List<DateTime> formattedMatches = new List<DateTime>();
-            //    formattedMatches.AddRange(matches.Where(x => UnixTimeToDateTime(x.info.gameCreation) > timeframe).Take(ruleset.MinimumIntervalValue));
                 formattedMatches.AddRange(matches.Where(x => x > timeframe).Take(ruleset.MinimumIntervalValue));
-
-
                                
                 //mail service?
                 if (formattedMatches.Count > ruleset.MinimumIntervalValue || formattedMatches.Count == ruleset.MinimumIntervalValue)
@@ -148,9 +139,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 {
                     return new ListFormatterConfirm( new ListFormatter(
                     formattedMatches,
-                //    UnixTimeToDateTime(formattedMatches.FirstOrDefault().info.gameCreation),
                     formattedMatches.FirstOrDefault(),
-                  //  UnixTimeToDateTime(formattedMatches.LastOrDefault().info.gameCreation).AddDays(ruleset.DayInterval),
                     formattedMatches.LastOrDefault().AddDays(ruleset.DayInterval),
                     ruleset.MinimumIntervalValue - formattedMatches.Count), validate);
                 }
