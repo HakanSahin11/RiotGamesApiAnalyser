@@ -38,28 +38,31 @@
     <tbody>
         @foreach (var item in Model)
         {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.SummonerName)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Region)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.Rank)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.RemainingGames)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.TimeRemain)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.LastMatch)
-                </td>
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.SummonerName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Region)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Rank)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RemainingGames)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeRemain)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastMatch)
+            </td>
+            <td>
+                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+            </td>
 
-                
-            </tr>
+        </tr>
         }
+        
     </tbody>
 </table>

@@ -63,14 +63,7 @@ namespace Lol_Decay_Analyser.Models
         public double revisionDate { get; set; }
         public double summonerLevel { get; set; }
     }
-    class MatchesModel
-    {
-        public MatchesModel(List<Match> matches)
-        {
-            this.matches = matches;
-        }
-        public List<Match> matches { get; set; }
-    }
+
     public class Match
     {
         public info info {get;set;}
@@ -126,7 +119,7 @@ namespace Lol_Decay_Analyser.Models
     }
     public class ListFormatter
     {
-        public ListFormatter(List<Match> matches, DateTime lastMatch, DateTime? timer, int gamesLeft)
+        public ListFormatter(List<DateTime> matches, DateTime lastMatch, DateTime? timer, int gamesLeft)
         {
             Matches = matches;
             LastMatch = lastMatch;
@@ -134,7 +127,7 @@ namespace Lol_Decay_Analyser.Models
             GamesLeft = gamesLeft;
         }
 
-        public List<Match> Matches { get; set; }
+        public List<DateTime> Matches { get; set; }
         public DateTime LastMatch { get; set; }
         public DateTime? Timer { get; set; }
         public int GamesLeft { get; set; }

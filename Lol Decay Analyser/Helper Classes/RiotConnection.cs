@@ -18,7 +18,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
             _context = context;
         }
 
-
+        //ENTER API KEY HERE
         private readonly string _ApiKey = "###";
 
 
@@ -80,11 +80,25 @@ namespace Lol_Decay_Analyser.Helper_Classes
         {
             return JsonConvert.DeserializeObject<UserModel>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{savedUsers.SummonerName}?api_key={_ApiKey}"));
         }
-        public List<Match> GetMatchesFromAPI(string puuId, string region)
+        public List<DateTime> GetMatchesFromAPI(string puuId, string region)
         {
-            var json = new WebClient().DownloadString($"https://Europe.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuId}/ids?queue=420&start=0&count=20&api_key={_ApiKey}");
-            var test = JsonConvert.DeserializeObject<MatchesModel>(json);
-            return null;
+            if (region.Equals("Euw1", StringComparison.OrdinalIgnoreCase) || region.Equals("Eun1", StringComparison.OrdinalIgnoreCase))
+                region = "Europe";
+            else if (region.Equals("Na1", StringComparison.OrdinalIgnoreCase))
+                region = "Americas";
+            else
+                region = "Asia";
+
+            var matchIds = JsonConvert.DeserializeObject<List<string>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuId}/ids?queue=420&start=0&count=5&api_key={_ApiKey}"));
+            var matchList = new List<DateTime>();
+            foreach (var item in matchIds)
+            {
+                var json = JsonConvert.DeserializeObject<Match>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v5/matches/{item}?api_key={_ApiKey}"));
+                var timer = UnixTimeToDateTime(json.info.gameCreation);
+                matchList.Add(timer); 
+            }
+
+            return matchList;
         }
         public IRankModel GetRankFromAPI(string SummonerId, string region)
         {
@@ -99,7 +113,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
             return dtDateTime;
         }
 
-        public ListFormatterConfirm ListFormatter(string tier, List<Match> matches)
+        public ListFormatterConfirm ListFormatter(string tier, List<DateTime> matches)
         {
             var ruleset = ListOfRanks.FirstOrDefault(x => x.Rank.Equals(tier, StringComparison.InvariantCultureIgnoreCase));
             bool validate = false;
@@ -109,8 +123,9 @@ namespace Lol_Decay_Analyser.Helper_Classes
             {
                 var timeframe = DateTime.Now.AddDays(-ruleset.DayInterval);
 
-                List<Match> formattedMatches = new List<Match>();
-                formattedMatches.AddRange(matches.Where(x => UnixTimeToDateTime(x.info.gameCreation) > timeframe).Take(ruleset.MinimumIntervalValue));
+                List<DateTime> formattedMatches = new List<DateTime>();
+            //    formattedMatches.AddRange(matches.Where(x => UnixTimeToDateTime(x.info.gameCreation) > timeframe).Take(ruleset.MinimumIntervalValue));
+                formattedMatches.AddRange(matches.Where(x => x > timeframe).Take(ruleset.MinimumIntervalValue));
 
 
                                
@@ -122,8 +137,10 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 {
                     return new ListFormatterConfirm( new ListFormatter(
                     formattedMatches,
-                    UnixTimeToDateTime(formattedMatches.FirstOrDefault().info.gameCreation),
-                    UnixTimeToDateTime(formattedMatches.LastOrDefault().info.gameCreation).AddDays(ruleset.DayInterval),
+                //    UnixTimeToDateTime(formattedMatches.FirstOrDefault().info.gameCreation),
+                    formattedMatches.FirstOrDefault(),
+                  //  UnixTimeToDateTime(formattedMatches.LastOrDefault().info.gameCreation).AddDays(ruleset.DayInterval),
+                    formattedMatches.LastOrDefault().AddDays(ruleset.DayInterval),
                     ruleset.MinimumIntervalValue - formattedMatches.Count), validate);
                 }
                 
@@ -131,28 +148,31 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 else
                 {
                     return
-                        new ListFormatterConfirm(new ListFormatter(matches, UnixTimeToDateTime(matches.FirstOrDefault().info.gameCreation), DateTime.Now, ruleset.MinimumIntervalValue), validate);
+                        new ListFormatterConfirm(new ListFormatter(matches, matches.FirstOrDefault(), DateTime.Now, ruleset.MinimumIntervalValue), validate);
                 }
             }
             // For ranks under the supported decay ranks
             else
-                return new ListFormatterConfirm(new ListFormatter(matches, UnixTimeToDateTime(matches.FirstOrDefault().info.gameCreation), null, 0), validate);
+                return new ListFormatterConfirm(new ListFormatter(matches, matches.FirstOrDefault(), null, 0), validate);
         }
         public RiotModel GetUserFromAPi(IRiotDBModel savedUser)
         {
             //try
-          //  {
+            //  {
+
                 var convertedRegion = ConvertRegion(savedUser.Region);
                 var User = GetAccountFromAPI(savedUser,convertedRegion);
                 var rank = GetRankFromAPI(User.id, convertedRegion);                
-                var Matches = GetMatchesFromAPI(User.puuid, convertedRegion);
-                var FormattedMatches = ListFormatter(rank.tier, Matches);
+                var MatchTimers = GetMatchesFromAPI(User.puuid, convertedRegion);
+
+                var FormattedMatches = ListFormatter(rank.tier, MatchTimers);
 
                 // add section for games left, time remaining
-
+                
                 return new RiotModel {SummonerName = savedUser.SummonerName, Rank = $"{rank.tier} {rank.rank}", 
                     TimeRemain = FormattedMatches.ListFormatter.Timer, Region = savedUser.Region, 
                     Id = _context.Riot.Where(x => x.SummonerName == savedUser.SummonerName && x.Region == savedUser.Region).FirstOrDefault().Id , LastMatch = FormattedMatches.ListFormatter.LastMatch, RemainingGames = FormattedMatches.ListFormatter.GamesLeft };
+
         //    }
           //  catch
             //{
