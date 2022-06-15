@@ -1,5 +1,5 @@
 # RiotGamesApiAnalyser
-- App needs update to match changes made on the Riot API end 
+- Updated App to match the Riot API's updated endpoints, still experimental state
 - NOTICE: You will need to implement your own personal API key into the RiotConnection.cs to make a connection
 
 Personal spare time project of mine.
