@@ -9,8 +9,8 @@ Decay is basically the interval whereas a player is needed to have played X numb
 The Application is made through C# MVC and has a direct connection to the Riot Games Developer API.
 The database for the utilization is through an SQL database which stores the Summoner names and Regions of formerly searched users.
 
-API Endpoint documentation:
 
+### API Endpoint documentation:
 Account: Returns User account info, which contains unique PUUID & SummonerId, through the listed username & region
 https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{SummonerName}?api_key={_ApiKey}
 
