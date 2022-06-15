@@ -17,7 +17,7 @@ https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{SummonerNa
 Rank: Returns User ranking info based on SummernerId & Region
 https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{SummonerId}?api_key={_ApiKey}
 
-MatchID: Returns users 11 most recent matches based on PUUID & Region
+MatchID: Returns users 11 (5 for Diamond) most recent matches based on PUUID & Region
 https://{region}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuId}/ids?queue=420&start=0&count=11&api_key={_ApiKey}
 
 Match: Returns single Match info based on individual MatchID & Region
