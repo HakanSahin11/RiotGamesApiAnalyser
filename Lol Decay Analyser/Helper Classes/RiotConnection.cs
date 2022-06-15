@@ -18,11 +18,10 @@ namespace Lol_Decay_Analyser.Helper_Classes
             _context = context;
         }
 
+        //numb of api calls: 14
+
         //ENTER API KEY HERE
         private readonly string _ApiKey = "###";
-
-
-        private readonly List<string> ListOfRegions = new List<string> { "ALL", "EUW", "EUNE", "NA", "BR", "LAN", "LAS", "OCE", "RU", "TR", "JP", "KR" };
 
         private readonly List<RankedModel> ListOfRanks = new List<RankedModel>
             {
@@ -76,6 +75,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
             return result;
         }
 
+        #region API Calls
         public IUserModel GetAccountFromAPI(IRiotDBModel savedUsers, string region)
         {
             return JsonConvert.DeserializeObject<UserModel>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/summoner/v4/summoners/by-name/{savedUsers.SummonerName}?api_key={_ApiKey}"));
@@ -88,8 +88,7 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 region = "Americas";
             else
                 region = "Asia";
-
-            var matchIds = JsonConvert.DeserializeObject<List<string>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuId}/ids?queue=420&start=0&count=5&api_key={_ApiKey}"));
+            var matchIds = JsonConvert.DeserializeObject<List<string>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/match/v5/matches/by-puuid/{puuId}/ids?queue=420&start=0&count=11&api_key={_ApiKey}"));
             var matchList = new List<DateTime>();
             foreach (var item in matchIds)
             {
@@ -105,6 +104,9 @@ namespace Lol_Decay_Analyser.Helper_Classes
             return JsonConvert.DeserializeObject<List<RankModel>>(new WebClient().DownloadString($"https://{region}.api.riotgames.com/lol/league/v4/entries/by-summoner/{SummonerId}?api_key={_ApiKey}"))[0];
         }
 
+        #endregion
+
+        #region API Formatter
         public static DateTime UnixTimeToDateTime(long unixtime)
         {
             //Converts unix time to datetime format
@@ -148,36 +150,35 @@ namespace Lol_Decay_Analyser.Helper_Classes
                 else
                 {
                     return
-                        new ListFormatterConfirm(new ListFormatter(matches, matches.FirstOrDefault(), DateTime.Now, ruleset.MinimumIntervalValue), validate);
+                        new ListFormatterConfirm(
+                            new ListFormatter(
+                                matches, matches.FirstOrDefault(), DateTime.Now, ruleset.MinimumIntervalValue), validate);
                 }
             }
             // For ranks under the supported decay ranks
             else
                 return new ListFormatterConfirm(new ListFormatter(matches, matches.FirstOrDefault(), null, 0), validate);
         }
+        #endregion
+
         public RiotModel GetUserFromAPi(IRiotDBModel savedUser)
         {
-            //try
-            //  {
-
+            try
+              {
                 var convertedRegion = ConvertRegion(savedUser.Region);
                 var User = GetAccountFromAPI(savedUser,convertedRegion);
                 var rank = GetRankFromAPI(User.id, convertedRegion);                
                 var MatchTimers = GetMatchesFromAPI(User.puuid, convertedRegion);
-
                 var FormattedMatches = ListFormatter(rank.tier, MatchTimers);
-
-                // add section for games left, time remaining
                 
                 return new RiotModel {SummonerName = savedUser.SummonerName, Rank = $"{rank.tier} {rank.rank}", 
                     TimeRemain = FormattedMatches.ListFormatter.Timer, Region = savedUser.Region, 
                     Id = _context.Riot.Where(x => x.SummonerName == savedUser.SummonerName && x.Region == savedUser.Region).FirstOrDefault().Id , LastMatch = FormattedMatches.ListFormatter.LastMatch, RemainingGames = FormattedMatches.ListFormatter.GamesLeft };
-
-        //    }
-          //  catch
-            //{
-              //  return null;
-            //}
+            }
+            catch (Exception e)
+            {
+                return null;
+            }
         }      
     }
 }

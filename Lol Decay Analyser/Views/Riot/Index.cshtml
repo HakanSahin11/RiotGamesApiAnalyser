@@ -58,7 +58,10 @@
                 @Html.DisplayFor(modelItem => item.LastMatch)
             </td>
             <td>
-                @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                @if(item != null)
+                {
+                     @Html.ActionLink("Delete", "Delete", new { id = item.Id })
+                }
             </td>
 
         </tr>
